@@ -32,7 +32,7 @@ const subjects = [
   {
     id: 2,
     name: "Dixie Elvin",
-    age: 28,
+    age: 32,
     gender: "M",
     diagnosisDate: "2024-07-10",
     status: "Approved",
@@ -40,7 +40,7 @@ const subjects = [
   {
     id: 3,
     name: "Winton Navy",
-    age: 28,
+    age: 25,
     gender: "M",
     diagnosisDate: "2024-04-11",
     status: "In Progress",
@@ -48,7 +48,7 @@ const subjects = [
   {
     id: 4,
     name: "Scout Caleb",
-    age: 28,
+    age: 24,
     gender: "M",
     diagnosisDate: "2023-12-12",
     status: "Released",
@@ -56,7 +56,7 @@ const subjects = [
   {
     id: 5,
     name: "Fleur Sally",
-    age: 28,
+    age: 41,
     gender: "F",
     diagnosisDate: "2023-11-15",
     status: "Released",
