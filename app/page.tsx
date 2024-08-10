@@ -1,5 +1,5 @@
 "use client";
-import { Checkbox, Table } from "@mantine/core";
+import { Table } from "@mantine/core";
 import { useEffect, useState } from "react";
 import FilterSection from "./components/filters/FilterSection";
 
@@ -10,6 +10,10 @@ export default function Home() {
   }>({ gender: [], status: [] });
   const [subjects, setSubjects] = useState<Subject[]>([]);
   const [filteredSubjects, setFilteredSubjects] = useState<Subject[]>([]);
+  const [sortOption, setSortOption] = useState<{
+    key: "name" | "age" | "diagnosisDate";
+    order: "asc" | "desc";
+  }>();
 
   useEffect(() => {
     // Fetch subjects from GET /api/subjects
@@ -39,6 +43,35 @@ export default function Home() {
     setFilteredSubjects(filteredData);
   }, [filters, subjects]);
 
+  const handleFilterChange = (newFilters: {
+    gender: string[];
+    status: string[];
+  }) => {
+    setFilters(newFilters);
+  };
+
+  const sortSubjectsByAttribute = (
+    subjects: Subject[],
+    key: "name" | "age" | "diagnosisDate"
+  ) => {
+    // If the key is the same as the current sort key, toggle the order
+    const order =
+      sortOption?.key === key && sortOption.order === "asc" ? "desc" : "asc";
+
+    const sortedSubjects = subjects.sort(function (a, b) {
+      if (key === "age") {
+        return order === "asc" ? a[key] - b[key] : b[key] - a[key];
+      }
+      return order === "asc"
+        ? a[key].localeCompare(b[key])
+        : b[key].localeCompare(a[key]);
+    });
+    
+    // Update sortOption state to remember the current sort key and order for the next sort
+    setSortOption({ key, order });
+    return sortedSubjects;
+  };
+
   const gridRows = filteredSubjects.map((subject) => (
     <Table.Tr key={subject.id}>
       <Table.Td>{subject.name}</Table.Td>
@@ -49,23 +82,38 @@ export default function Home() {
     </Table.Tr>
   ));
 
-  const handleFilterChange = (newFilters: {
-    gender: string[];
-    status: string[];
-  }) => {
-    setFilters(newFilters);
-  };
-
   return (
     <div>
       <FilterSection onFilterChange={handleFilterChange} />
       <Table>
         <Table.Thead>
           <Table.Tr>
-            <Table.Th>Name</Table.Th>
-            <Table.Th>Age</Table.Th>
+            <Table.Th
+              onClick={() =>
+                setSubjects((prev) => [
+                  ...sortSubjectsByAttribute(prev, "name"),
+                ])
+              }
+            >
+              Name
+            </Table.Th>
+            <Table.Th
+              onClick={() =>
+                setSubjects((prev) => [...sortSubjectsByAttribute(prev, "age")])
+              }
+            >
+              Age
+            </Table.Th>
             <Table.Th>Gender</Table.Th>
-            <Table.Th>Diagnosis Date</Table.Th>
+            <Table.Th
+              onClick={() =>
+                setSubjects((prev) => [
+                  ...sortSubjectsByAttribute(prev, "diagnosisDate"),
+                ])
+              }
+            >
+              Diagnosis Date
+            </Table.Th>
             <Table.Th>Status</Table.Th>
           </Table.Tr>
         </Table.Thead>
