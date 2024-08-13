@@ -234,7 +234,7 @@ export default function Home() {
                     style={{ cursor: "pointer" }}
                   >
                     Name
-                    {sortOption?.key === "name" ? (
+                    {sortOption?.key === SortKey.Name ? (
                       sortOption.order === SortOrder.Asc ? (
                         <IconSortAscendingLetters
                           className={styles.iconPadding}
