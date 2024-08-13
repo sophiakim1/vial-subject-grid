@@ -1,6 +1,6 @@
 import { Checkbox } from "@mantine/core";
 import React from "react";
-import styles from "../../page.module.css";
+import styles from "./FilterSection.module.css";
 import { Gender } from "@/app/global/interfaces";
 
 interface GenderFilterProps {

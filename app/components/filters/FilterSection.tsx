@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import GenderFilter from "./GenderFilter";
 import StatusFilter from "./StatusFilter";
-import styles from "../../page.module.css";
+import styles from "./FilterSection.module.css";
 
 interface FilterSectionProps {
   filters: {

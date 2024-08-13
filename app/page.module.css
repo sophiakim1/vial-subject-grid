@@ -4,46 +4,6 @@
   width: 95vw;
 }
 
-.headerContainer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-.logoContainer {
-  flex: 0 0 20%;
-  max-width: 250px;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 1rem;
-}
-
-.logo {
-  height: 50px;
-  cursor: pointer;
-}
-
-.aboutContainer {
-  display: flex;
-  justify-content: flex-end;
-  align-items: end;
-  width: 100%;
-  overflow: hidden;
-  text-align: end;
-}
-
-.aboutButton {
-  text-transform: uppercase;
-  margin: .8rem 2.2rem .8rem 0;
-  cursor: pointer;
-  font-size: smaller;
-  font-weight: bold;
-  border: none;
-  text-align: end;
-  background-color: transparent;
-}
-
 .collapseButton {
   display: none;
 }
@@ -102,48 +62,10 @@
   opacity: 0.5;
 }
 
-/* filter */
 .box {
   flex: 0 0 20%;
   border-radius: 0.8rem;
   max-width: 250px;
-}
-
-.filterbox {
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  background-color: rgba(255, 255, 255, 0.8); 
-  border-radius: 0.8rem;
-  margin: 1rem 0;
-  box-shadow: 0 .4rem .8rem rgba(158, 158, 158, 0.333);
-}
-
-.title {
-  font-weight: bold;
-  margin-bottom: 8px;
-  text-transform: uppercase;
-  font-size: 0.8em;
-}
-
-.checkbox {
-  background-color: transparent;
-  border: 1px solid #d5d1de;
-  cursor: pointer;
-}
-
-.checkbox:hover {
-  border: 1px solid #1E90FF;
-}
-
-.filterOption {
-  padding-bottom: 0.5rem;
-}
-
-.pillContainer {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0.5rem 0;
 }
 
 /* Main */
@@ -156,83 +78,7 @@
   overflow-y: auto;
 }
 
-.table_body {
-  width: 95%;
-  max-height: calc(89% - .8rem);
-  margin: 0 auto .8rem auto;
-  border-radius: .6rem;
-  overflow: hidden;
-  overflow-y: auto;
-  box-shadow: 0 .4rem .8rem rgba(158, 158, 158, 0.333);;
-  display: block;
-  position: relative;
-}
-
-.table_body::-webkit-scrollbar {
-  width: 13px;
-  border-radius: 10px;
-}
-
-.table_body::-webkit-scrollbar-thumb {
-  background: #c3ddddb6;
-  border-radius: 10px;
-}
-
-.table_body::-webkit-scrollbar-thumb:hover {
-  background-color: #0004;
-  visibility: visible;
-}
-
-.table_body::-webkit-scrollbarx {
-  width: 0.5rem;
-  height: 0.5rem;
-}
-
-.table_body tr:nth-child(even) {
-  background-color: #0000000b;
-}
-
-.iconPadding {
-  padding-top: 5px;
-}
-
-.statusApproved {
-  background-color: #e9f5ff;
-  color: #070B1B;
-  padding: .3rem .3rem;
-  border-radius: .4rem;
-  font-size: 0.8em;
-  font-weight: bold;
-}
-
-.statusReleased {
-  background-color: #cdffe0;
-  color: #070B1B;
-  padding: .3rem .3rem;
-  border-radius: .4rem;
-  font-size: 0.8em;
-  font-weight: bold;
-}
-
-.statusTesting {
-  background-color: #fffedc;
-  color: #070B1B;
-  padding: .3rem .3rem;
-  border-radius: .4rem;
-  font-size: 0.8em;
-  font-weight: bold;
-}
-
-.statusPending {
-  background-color: #eddbfa;
-  color: #070B1B;
-  padding: .3rem .3rem;
-  border-radius: .4rem;
-  font-size: 0.8em;
-  font-weight: bold;
-}
-
-@media(max-width: 36em) {
+@media (max-width: 36em) {
   body {
     overflow: hidden;
   }
@@ -250,7 +96,8 @@
     transform: translate(-50%, 5%);
     z-index: 99;
     display: block;
-    box-shadow: -1em 0 .4em rgba(158, 158, 158, 0.333), 1em 0 .4em rgba(158, 158, 158, 0.333);
+    box-shadow: -1em 0 0.4em rgba(158, 158, 158, 0.333),
+      1em 0 0.4em rgba(158, 158, 158, 0.333);
   }
   .box.open {
     transform: translateY(0);
@@ -262,13 +109,13 @@
     border-bottom-right-radius: 0;
   }
   .searchBar:active {
-  border: none;
+    border: none;
   }
   .searchBar:focus {
-  border: none;
+    border: none;
   }
   .searchBar:hover {
-  border: none;
+    border: none;
   }
   .filterbox {
     display: flex;
@@ -276,7 +123,7 @@
     justify-content: space-around;
     order: 2;
     margin: 0;
-    background-color: #fff; 
+    background-color: #fff;
     border-radius: 0;
   }
   .table_body {
@@ -286,18 +133,18 @@
   }
   .table_body tr {
     margin-bottom: 12px;
-    border-radius: .5rem;
-    box-shadow: 0 .4rem .8rem rgba(158, 158, 158, 0.333);
+    border-radius: 0.5rem;
+    box-shadow: 0 0.4rem 0.8rem rgba(158, 158, 158, 0.333);
     background-color: #fff;
   }
   .table_body tr:hover {
-    color:#2e3032;
+    color: #2e3032;
   }
   .table_body tr:nth-child(even) {
     background-color: #c3dddd;
   }
   .table_body tr:nth-child(even):hover {
-  background-color: #c2d6d6;
+    background-color: #c2d6d6;
   }
   .table_body::-webkit-scrollbar-thumb {
     background: #c3dddd;
@@ -306,12 +153,6 @@
     background-color: #c2d6d6;
   }
   .pillContainer {
-    display: none;
-  }
-}
-
-@media(max-width: 794px) {
-  .iconPadding {
     display: none;
   }
 }
