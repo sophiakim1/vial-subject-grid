@@ -1,33 +1,93 @@
-.aboutContainer {
-  height: 100%;
-  width: 70vw;
-  margin: 10rem;
-  justify-content: center;
+
+.root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   align-items: center;
-  text-align: center;
+  justify-content: center; 
+  width: 95%;
+  margin-top: 110px;
+}
+
+.container {
+  width: 90vw;
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center; 
+}
+
+.contentContainer {
+  width: 50%;
 }
 
 .content {
   padding: 20px;
-  justify-content: center;
-  align-items: center;
 }
 
 .list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem; 
-  justify-content: center;
-  align-items: center;
-  text-align: center;
   margin: 0 auto;
+}
+
+.rightContent {
+  width: 90%;
+}
+
+.rightContainer {
+  margin-left: 50px;
 }
 
 .footer {
   text-decoration: none;
   color: #2e3032;
+  text-align: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  display: flex;
+  padding: 10px;
 }
 
 .footer:hover {
   font-weight: bold;
+}
+
+@media (max-width: 787px) {
+  .root {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .contentContainer {
+    width: 100%;
+    display: flex;
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content {
+    padding: 0 10px;
+    justify-content: center;
+  }
+
+  .list {
+    font-size: 14px;
+  }
+
+  .listText {
+    font-size: 12px;
+  }
+
+  .sectionHeader {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .footer {
+    font-size: 14px;
+    padding: 10px;
+  }
 }

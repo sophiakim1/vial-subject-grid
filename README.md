@@ -62,7 +62,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 5. **Dynamic Interactions**:
     - Added a search bar that allowed users to quickly find subjects by typing their names, enhancing the usability and efficiency of data retrieval. The search functionality did not discriminate between uppercase and lowercase letters and accommodated variations in the order of first name and last name.
-    - Implemented an infinite scroll feature to improve the handling of large data sets, ensuring that users could view more subjects without the need for pagination, thereby enhancing the overall user experience.
 
 6. **Responsiveness**:
     - Ensured that the application was fully responsive, providing an optimal user experience across various devices and screen sizes. This included adapting layouts and elements to ensure usability on both mobile and desktop environments.
