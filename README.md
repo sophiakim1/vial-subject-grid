@@ -44,34 +44,39 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Features
 1. **Data Fetching**:
-    - Created a mock API endpoint for subjects or developed a backend service with a GET route to fetch subject data.
-    - Each subject contains fields such as ID, Name, Age, Gender, Diagnosis Date, and Status.
-    - Introduced a delayed API call to simulate realistic network latency.
+    - Created a sleep function that pauses execution for a specified number of milliseconds. Combined the sleep function and mock data to simulate the behavior of a real-world API that might have network latency and returns a predefined set of data.
+    - Created a subjects array containing mock data. Each subject is represented as an object with various attributes: ID, Name, Age, Gender, Diagnosis Date, and Status.
 
 2. **Grid Display**:
-    - Render subject data in a visually appealing and user-friendly grid or table format.
-    - Utilize Mantine for styling to ensure a modern and responsive design.
+    - Rendered subject data in a visually appealing and user-friendly grid or table format.
+    - Utilized Mantine for styling, ensuring that the design was modern, responsive, and consistent with the overall look and feel of the application.
 
 3. **Filtering Capability**:
-    - Allow users to filter subject data based on attributes like Gender, Diagnosis Date, and Status.
-    - Provide intuitive UI elements such as dropdowns or checkboxes for filters.
+    - Implemented a filtering feature that allowed users to refine the displayed subject data based on specific attributes like Gender, Diagnosis Date, and Status.
+    - Included intuitive UI elements, such as checkboxes and pills, to make the filtering process seamless and accessible to users.
 
 4. **Sorting Feature**:
-    - Enable users to sort data by attributes such as Name, Age, and Diagnosis Date.
     - Implement sorting via clickable table headers or separate sorting controls.
+    - Enabled users to sort the displayed data by key attributes such as Name, Age, and Diagnosis Date.
+    - Incorporated sorting functionality via clickable table headers, allowing users to easily rearrange the data. Implemented icons to match ascending or descending order.
 
 5. **Dynamic Interactions**:
-    - Add a search bar enabling users to search subjects by their name.
-    - Implement infinite scroll to handle the display more efficiently.
+    - Added a search bar that allowed users to quickly find subjects by typing their names, enhancing the usability and efficiency of data retrieval. The search functionality did not discriminate between uppercase and lowercase letters and accommodated variations in the order of first name and last name.
+    - Implemented an infinite scroll feature to improve the handling of large data sets, ensuring that users could view more subjects without the need for pagination, thereby enhancing the overall user experience.
 
 6. **Responsiveness**:
-    - Application is responsive and provides a good user experience on different devices and screen sizes.
+    - Ensured that the application was fully responsive, providing an optimal user experience across various devices and screen sizes. This included adapting layouts and elements to ensure usability on both mobile and desktop environments.
 
 7. **Accessibility**:
-    - Adheres to accessibility standards (e.g., WCAG) to provide an inclusive experience for all users.
+    - Adhered to accessibility standards, such as the Web Content Accessibility Guidelines (WCAG), to ensure that the application was inclusive and usable by all users, including those with disabilities. This included considerations for color contrast, keyboard navigation, and screen reader compatibility.
 
 8. **GitHub Project Board**:
-    - Use [GitHub Project Board](https://github.com/users/sophiakim1/projects/2) to manage and track the progress of tasks and features.
+    - Utilized the [GitHub Project Board](https://github.com/users/sophiakim1/projects/2) to manage and track the progress of tasks and features throughout the development process. This tool facilitated organized and efficient project management, ensuring that all tasks were visible, assigned, and completed in a timely manner.
+
+9. **Unit Testing**:
+    - Developed a test case to ensure that the FilterSection component renders correctly. The test utilized the render function and verified the component's successful rendering by asserting that it exists in the document.
+    - The test ensured that all status options ("Pending," "Approved," "Testing," and "Released") were present as checkboxes in the document, verifying the correct implementation of the status filter.
+    - The test rendered the FilterSection component with predefined filter values and verified that the corresponding checkboxes for gender and status filters were correctly checked or unchecked.
 
 <br>
 <br>

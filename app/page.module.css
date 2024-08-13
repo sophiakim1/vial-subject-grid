@@ -99,9 +99,8 @@
     transform: translate(-50%, 5%);
     z-index: 99;
     display: block;
-    box-shadow: -1em 0 0.4em rgba(158, 158, 158, 0.333),
-      1em 0 0.4em rgba(158, 158, 158, 0.333);
-      background-color: #fff;
+    box-shadow: -1em 0 0.4em rgba(158, 158, 158, 0.333), 1em 0 0.4em rgba(158, 158, 158, 0.333);
+    background-color: #fff;
   }
   .box.open {
     transform: translateY(0);
