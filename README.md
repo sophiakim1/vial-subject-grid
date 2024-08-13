@@ -22,7 +22,7 @@ First, run the development server:
 yarn install
 # then
 yarn add react react-dom next
-# or
+# then
 yarn dev
 ```
 

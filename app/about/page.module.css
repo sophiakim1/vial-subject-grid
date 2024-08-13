@@ -4,27 +4,12 @@
   width: 95vw;
 }
 
-.logo {
-  height: 50px;
-  cursor: pointer;
+.content {
+  margin-top: 60px; /* Adjust based on the height of the header */
+  padding: 20px;
 }
 
-.aboutContainer {
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-  overflow: hidden;
-  text-align: end;
-}
-
-.aboutButton {
-  text-transform: uppercase;
-  margin: .8rem 2.2rem .8rem 0;
-  cursor: pointer;
-  font-size: smaller;
+.subject {
+  font-size: 24px;
   font-weight: bold;
-  border: none;
-  text-align: end;
-  background-color: transparent;
-    position: absolute;
 }

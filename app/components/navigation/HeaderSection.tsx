@@ -7,17 +7,21 @@ const HeaderSection: React.FC = () => {
   return (
     <div className={styles.headerContainer}>
       <div className={styles.logoContainer}>
-        <Image
-          src={logo}
-          alt="Logo"
-          className={styles.logo}
-          width={120}
-          height={50}
-        />
+        <Link href="/">
+          <Image
+            src={logo}
+            alt="Logo"
+            className={styles.logo}
+            width={120}
+            height={50}
+          />
+        </Link>
       </div>
 
       <div className={styles.aboutContainer}>
-        <Link href="/about">About</Link>
+        <Link href="/about" className={styles.aboutButton}>
+          About
+        </Link>
       </div>
     </div>
   );

@@ -6,7 +6,6 @@
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 0.8rem;
   margin: 1rem 0;
-  box-shadow: 0 0.4rem 0.8rem rgba(158, 158, 158, 0.333);
 }
 
 .filterOption {
@@ -34,4 +33,16 @@
   margin-bottom: 8px;
   text-transform: uppercase;
   font-size: 0.8em;
+}
+
+@media (max-width: 36em) {
+  .filterbox {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 2;
+    margin: 0;
+    background-color: #fff;
+    border-radius: 0;
+  }
 }

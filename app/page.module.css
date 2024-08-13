@@ -6,6 +6,11 @@
 
 .collapseButton {
   display: none;
+  background-color:#abc1c1;
+}
+
+.collapseButton:hover {
+  background-color:#c3dddd;
 }
 
 .searchBar {
@@ -66,6 +71,7 @@
   flex: 0 0 20%;
   border-radius: 0.8rem;
   max-width: 250px;
+  margin-top:40px;
 }
 
 /* Main */
@@ -95,6 +101,7 @@
     display: block;
     box-shadow: -1em 0 0.4em rgba(158, 158, 158, 0.333),
       1em 0 0.4em rgba(158, 158, 158, 0.333);
+      background-color: #fff;
   }
   .box.open {
     transform: translateY(0);
@@ -114,15 +121,7 @@
   .searchBar:hover {
     border: none;
   }
-  .filterbox {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    order: 2;
-    margin: 0;
-    background-color: #fff;
-    border-radius: 0;
-  }
+
   .table_body {
     max-width: 360px;
     background-color: transparent;

@@ -37,13 +37,26 @@
 .table_body {
   width: 95%;
   max-height: calc(89% - 0.8rem);
-  margin: 0 auto 0.8rem auto;
+  margin: 45px auto 0.8rem auto;
   border-radius: 0.6rem;
   overflow: hidden;
   overflow-y: auto;
   box-shadow: 0 0.4rem 0.8rem rgba(158, 158, 158, 0.333);
   display: block;
   position: relative;
+  table-layout: fixed;
+}
+
+.table_body tr:hover {
+  font-weight: bold;
+  color: #2e3032;
+}
+
+.table_body td {
+  width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .table_body::-webkit-scrollbar {
@@ -78,4 +91,7 @@
   .iconPadding {
     display: none;
   }
+  .table_body td {
+  width: auto;
+}
 }
