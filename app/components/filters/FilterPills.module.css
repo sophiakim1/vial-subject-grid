@@ -1,0 +1,11 @@
+.pillContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0.5rem 0;
+}
+
+@media (max-width: 36em) {
+  .pillContainer {
+    display: none;
+  }
+}

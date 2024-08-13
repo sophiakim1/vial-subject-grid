@@ -1,0 +1,37 @@
+
+.filterbox {
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 0.8rem;
+  margin: 1rem 0;
+  box-shadow: 0 0.4rem 0.8rem rgba(158, 158, 158, 0.333);
+}
+
+.filterOption {
+  padding-bottom: 0.5rem;
+}
+
+.checkbox {
+  background-color: transparent;
+  border: 1px solid #d5d1de;
+  cursor: pointer;
+}
+
+.checkbox:hover {
+  border: 1px solid #1e90ff;
+}
+
+.box {
+  flex: 0 0 20%;
+  border-radius: 0.8rem;
+  max-width: 250px;
+}
+
+.title {
+  font-weight: bold;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  font-size: 0.8em;
+}

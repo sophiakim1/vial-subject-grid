@@ -1,0 +1,81 @@
+.statusApproved {
+  background-color: #e9f5ff;
+  color: #070b1b;
+  padding: 0.3rem 0.3rem;
+  border-radius: 0.4rem;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.statusReleased {
+  background-color: #cdffe0;
+  color: #070b1b;
+  padding: 0.3rem 0.3rem;
+  border-radius: 0.4rem;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.statusTesting {
+  background-color: #fffedc;
+  color: #070b1b;
+  padding: 0.3rem 0.3rem;
+  border-radius: 0.4rem;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.statusPending {
+  background-color: #eddbfa;
+  color: #070b1b;
+  padding: 0.3rem 0.3rem;
+  border-radius: 0.4rem;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.table_body {
+  width: 95%;
+  max-height: calc(89% - 0.8rem);
+  margin: 0 auto 0.8rem auto;
+  border-radius: 0.6rem;
+  overflow: hidden;
+  overflow-y: auto;
+  box-shadow: 0 0.4rem 0.8rem rgba(158, 158, 158, 0.333);
+  display: block;
+  position: relative;
+}
+
+.table_body::-webkit-scrollbar {
+  width: 13px;
+  border-radius: 10px;
+}
+
+.table_body::-webkit-scrollbar-thumb {
+  background: #c3ddddb6;
+  border-radius: 10px;
+}
+
+.table_body::-webkit-scrollbar-thumb:hover {
+  background-color: #0004;
+  visibility: visible;
+}
+
+.table_body::-webkit-scrollbarx {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+.table_body tr:nth-child(even) {
+  background-color: #0000000b;
+}
+
+.iconPadding {
+  padding-top: 5px;
+}
+
+@media (max-width: 794px) {
+  .iconPadding {
+    display: none;
+  }
+}

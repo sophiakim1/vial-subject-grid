@@ -1,27 +1,21 @@
 "use client";
-import { useRouter } from "next/navigation";
-import { Table } from "@mantine/core";
-import styles from "./page.module.css";
-import { IconSortAscendingLetters } from "@tabler/icons-react";
-import { IconSortDescendingLetters } from "@tabler/icons-react";
-import { IconSortAscendingNumbers } from "@tabler/icons-react";
-import { IconSortDescendingNumbers } from "@tabler/icons-react";
+import { Box, Button, Collapse, Group, TextInput } from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
 import { IconSearch } from "@tabler/icons-react";
 import { useEffect, useState } from "react";
+import FilterPills from "./components/filters/FilterPills";
 import FilterSection from "./components/filters/FilterSection";
-import Image from "next/image";
-import logo from "./asset/logo.png";
-import { Button, Group, TextInput, Collapse, Box, Pill } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
+import GridSection from "./components/grid/GridSection";
+import HeaderSection from "./components/navigation/HeaderSection";
 import {
   FilterKey,
   Filters,
   SortKey,
   SortOptions,
   SortOrder,
-  Status,
   Subject,
 } from "./global/interfaces";
+import styles from "./page.module.css";
 
 export default function Home() {
   const [filters, setFilters] = useState<Filters>({ gender: [], status: [] });
@@ -29,7 +23,6 @@ export default function Home() {
   const [filteredSubjects, setFilteredSubjects] = useState<Subject[]>([]);
   const [sortOption, setSortOption] = useState<SortOptions>();
   const [searchQuery, setSearchQuery] = useState("");
-  const router = useRouter();
 
   useEffect(() => {
     // Fetch subjects from GET /api/subjects
@@ -104,91 +97,12 @@ export default function Home() {
     return sortedSubjects;
   };
 
-  const pills = [
-    ...filters.gender.map((gender, index) => (
-      <Pill
-        key={`gender-${index}`}
-        withRemoveButton
-        onRemove={() => handleRemoveFilter(FilterKey.Gender, gender)}
-        styles={{
-          root: { backgroundColor: "#fff", marginRight: "5px" },
-        }}
-      >
-        {gender}
-      </Pill>
-    )),
-    ...filters.status.map((status, index) => (
-      <Pill
-        key={`status-${index}`}
-        withRemoveButton
-        onRemove={() => handleRemoveFilter(FilterKey.Status, status)}
-        styles={{
-          root: { backgroundColor: "#fff", marginRight: "5px" },
-        }}
-      >
-        {status}
-      </Pill>
-    )),
-  ];
-
-  const gridRows = filteredSubjects.map((subject) => {
-    let statusClass = "";
-    switch (subject.status) {
-      case Status.Approved:
-        statusClass = styles.statusApproved;
-        break;
-      case Status.Released:
-        statusClass = styles.statusReleased;
-        break;
-      case Status.Testing:
-        statusClass = styles.statusTesting;
-        break;
-      case Status.Pending:
-        statusClass = styles.statusPending;
-        break;
-      default:
-        break;
-    }
-
-    return (
-      <Table.Tr key={subject.id}>
-        <Table.Td data-label="Name">{subject.name}</Table.Td>
-        <Table.Td data-label="Age">{subject.age}</Table.Td>
-        <Table.Td data-label="Gender">{subject.gender}</Table.Td>
-        <Table.Td data-label="Diagnosis Date">{subject.diagnosisDate}</Table.Td>
-        <Table.Td data-label="Status">
-          <span className={statusClass}>{subject.status}</span>
-        </Table.Td>
-      </Table.Tr>
-    );
-  });
-
   const [collapseOpened, { toggle: toggleCollapse }] = useDisclosure(true);
 
   return (
     <div>
-      <div className={styles.headerContainer}>
-        <div className={styles.logoContainer}>
-          <Image
-            src={logo}
-            alt="Logo"
-            className={styles.logo}
-            width={120}
-            height={50}
-          />
-        </div>
-
-        <div className={styles.aboutContainer}>
-          <button
-            className={styles.aboutButton}
-            onClick={() => router.push("/about")}
-          >
-            About
-          </button>
-        </div>
-      </div>
-      <div className={styles.pillContainer}>{pills}</div>
-
+      <HeaderSection />
+      <FilterPills filters={filters} handleRemoveFilter={handleRemoveFilter} />
       <div className={styles.wrapper}>
         <div>
           <div className={styles.box}>
@@ -221,92 +135,14 @@ export default function Home() {
         </div>
 
         <div className={styles.container}>
-          <div className={styles.table_body}>
-            <Table>
-              <Table.Thead>
-                <Table.Tr>
-                  <Table.Th
-                    onClick={() =>
-                      setSubjects((prev) => [
-                        ...sortSubjectsByAttribute(prev, SortKey.Name),
-                      ])
-                    }
-                    style={{ cursor: "pointer" }}
-                  >
-                    Name
-                    {sortOption?.key === SortKey.Name ? (
-                      sortOption.order === SortOrder.Asc ? (
-                        <IconSortAscendingLetters
-                          className={styles.iconPadding}
-                        />
-                      ) : (
-                        <IconSortDescendingLetters
-                          className={styles.iconPadding}
-                        />
-                      )
-                    ) : (
-                      <IconSortAscendingLetters
-                        className={styles.iconPadding}
-                      />
-                    )}
-                  </Table.Th>
-                  <Table.Th
-                    onClick={() =>
-                      setSubjects((prev) => [
-                        ...sortSubjectsByAttribute(prev, SortKey.Age),
-                      ])
-                    }
-                    style={{ cursor: "pointer" }}
-                  >
-                    Age
-                    {sortOption?.key === SortKey.Age ? (
-                      sortOption.order === SortOrder.Asc ? (
-                        <IconSortAscendingNumbers
-                          className={styles.iconPadding}
-                        />
-                      ) : (
-                        <IconSortDescendingNumbers
-                          className={styles.iconPadding}
-                        />
-                      )
-                    ) : (
-                      <IconSortAscendingNumbers
-                        className={styles.iconPadding}
-                      />
-                    )}
-                  </Table.Th>
-                  <Table.Th>Gender</Table.Th>
-                  <Table.Th
-                    onClick={() =>
-                      setSubjects((prev) => [
-                        ...sortSubjectsByAttribute(prev, SortKey.DiagnosisDate),
-                      ])
-                    }
-                    style={{ cursor: "pointer" }}
-                  >
-                    Diagnosis Date
-                    {sortOption?.key === SortKey.DiagnosisDate ? (
-                      sortOption.order === SortOrder.Asc ? (
-                        <IconSortAscendingNumbers
-                          className={styles.iconPadding}
-                        />
-                      ) : (
-                        <IconSortDescendingNumbers
-                          className={styles.iconPadding}
-                        />
-                      )
-                    ) : (
-                      <IconSortAscendingNumbers
-                        className={styles.iconPadding}
-                      />
-                    )}
-                  </Table.Th>
-                  <Table.Th>Status</Table.Th>
-                </Table.Tr>
-              </Table.Thead>
-              <Table.Tbody>{gridRows}</Table.Tbody>
-            </Table>
-          </div>
+          <GridSection
+            subjects={subjects}
+            setSubjects={setSubjects}
+            sortOption={sortOption}
+            setSortOption={setSortOption}
+            sortSubjectsByAttribute={sortSubjectsByAttribute}
+            filteredSubjects={filteredSubjects}
+          />
         </div>
       </div>
     </div>
