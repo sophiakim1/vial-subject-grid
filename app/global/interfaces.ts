@@ -2,10 +2,20 @@ export interface Subject {
   id: number;
   name: string;
   age: number;
-  gender: Gender; 
+  gender: Gender;
   diagnosisDate: string;
   status: Status;
-};
+}
+
+export interface Filters {
+  gender: string[];
+  status: string[];
+}
+
+export interface SortOptions {
+  key: SortKey;
+  order: SortOrder;
+}
 
 export enum Gender {
   Male = "Male",
@@ -17,4 +27,20 @@ export enum Status {
   Pending = "Pending",
   Testing = "Testing",
   Released = "Released",
+}
+
+export enum SortKey {
+  Name = "name",
+  Age = "age",
+  DiagnosisDate = "diagnosisDate",
+}
+
+export enum SortOrder {
+  Asc = "asc",
+  Desc = "desc",
+}
+
+export enum FilterKey {
+  Gender = "gender",
+  Status = "status",
 }

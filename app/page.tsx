@@ -13,21 +13,23 @@ import Image from "next/image";
 import logo from "./asset/logo.png";
 import { Button, Group, TextInput, Collapse, Box, Pill } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { Status, Subject } from "./global/interfaces";
+import {
+  FilterKey,
+  Filters,
+  SortKey,
+  SortOptions,
+  SortOrder,
+  Status,
+  Subject,
+} from "./global/interfaces";
 
 export default function Home() {
-  const [filters, setFilters] = useState<{
-    gender: string[];
-    status: string[];
-  }>({ gender: [], status: [] });
+  const [filters, setFilters] = useState<Filters>({ gender: [], status: [] });
   const [subjects, setSubjects] = useState<Subject[]>([]);
   const [filteredSubjects, setFilteredSubjects] = useState<Subject[]>([]);
-  const [sortOption, setSortOption] = useState<{
-    key: "name" | "age" | "diagnosisDate";
-    order: "asc" | "desc";
-  }>();
-  const router = useRouter();
+  const [sortOption, setSortOption] = useState<SortOptions>();
   const [searchQuery, setSearchQuery] = useState("");
+  const router = useRouter();
 
   useEffect(() => {
     // Fetch subjects from GET /api/subjects
@@ -70,7 +72,7 @@ export default function Home() {
     setFilters(newFilters);
   };
 
-  const handleRemoveFilter = (type: "gender" | "status", value: string) => {
+  const handleRemoveFilter = (type: FilterKey, value: string) => {
     setFilters((prevFilters) => {
       const updatedFilters = {
         ...prevFilters,
@@ -81,19 +83,18 @@ export default function Home() {
     });
   };
 
-  const sortSubjectsByAttribute = (
-    subjects: Subject[],
-    key: "name" | "age" | "diagnosisDate"
-  ) => {
+  const sortSubjectsByAttribute = (subjects: Subject[], key: SortKey) => {
     // If the key is the same as the current sort key, toggle the order
     const order =
-      sortOption?.key === key && sortOption.order === "asc" ? "desc" : "asc";
+      sortOption?.key === key && sortOption.order === SortOrder.Asc
+        ? SortOrder.Desc
+        : SortOrder.Asc;
 
     const sortedSubjects = subjects.sort(function (a, b) {
-      if (key === "age") {
-        return order === "asc" ? a[key] - b[key] : b[key] - a[key];
+      if (key === SortKey.Age) {
+        return order === SortOrder.Asc ? a[key] - b[key] : b[key] - a[key];
       }
-      return order === "asc"
+      return order === SortOrder.Asc
         ? a[key].localeCompare(b[key])
         : b[key].localeCompare(a[key]);
     });
@@ -108,7 +109,7 @@ export default function Home() {
       <Pill
         key={`gender-${index}`}
         withRemoveButton
-        onRemove={() => handleRemoveFilter("gender", gender)}
+        onRemove={() => handleRemoveFilter(FilterKey.Gender, gender)}
         styles={{
           root: { backgroundColor: "#fff", marginRight: "5px" },
         }}
@@ -120,7 +121,7 @@ export default function Home() {
       <Pill
         key={`status-${index}`}
         withRemoveButton
-        onRemove={() => handleRemoveFilter("status", status)}
+        onRemove={() => handleRemoveFilter(FilterKey.Status, status)}
         styles={{
           root: { backgroundColor: "#fff", marginRight: "5px" },
         }}
@@ -227,14 +228,14 @@ export default function Home() {
                   <Table.Th
                     onClick={() =>
                       setSubjects((prev) => [
-                        ...sortSubjectsByAttribute(prev, "name"),
+                        ...sortSubjectsByAttribute(prev, SortKey.Name),
                       ])
                     }
                     style={{ cursor: "pointer" }}
                   >
                     Name
                     {sortOption?.key === "name" ? (
-                      sortOption.order === "asc" ? (
+                      sortOption.order === SortOrder.Asc ? (
                         <IconSortAscendingLetters
                           className={styles.iconPadding}
                         />
@@ -252,14 +253,14 @@ export default function Home() {
                   <Table.Th
                     onClick={() =>
                       setSubjects((prev) => [
-                        ...sortSubjectsByAttribute(prev, "age"),
+                        ...sortSubjectsByAttribute(prev, SortKey.Age),
                       ])
                     }
                     style={{ cursor: "pointer" }}
                   >
                     Age
-                    {sortOption?.key === "age" ? (
-                      sortOption.order === "asc" ? (
+                    {sortOption?.key === SortKey.Age ? (
+                      sortOption.order === SortOrder.Asc ? (
                         <IconSortAscendingNumbers
                           className={styles.iconPadding}
                         />
@@ -278,14 +279,14 @@ export default function Home() {
                   <Table.Th
                     onClick={() =>
                       setSubjects((prev) => [
-                        ...sortSubjectsByAttribute(prev, "diagnosisDate"),
+                        ...sortSubjectsByAttribute(prev, SortKey.DiagnosisDate),
                       ])
                     }
                     style={{ cursor: "pointer" }}
                   >
                     Diagnosis Date
-                    {sortOption?.key === "diagnosisDate" ? (
-                      sortOption.order === "asc" ? (
+                    {sortOption?.key === SortKey.DiagnosisDate ? (
+                      sortOption.order === SortOrder.Asc ? (
                         <IconSortAscendingNumbers
                           className={styles.iconPadding}
                         />
