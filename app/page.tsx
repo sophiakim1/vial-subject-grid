@@ -13,6 +13,7 @@ import Image from "next/image";
 import logo from "./asset/logo.png";
 import { Button, Group, TextInput, Collapse, Box, Pill } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
+import { Status, Subject } from "./global/interfaces";
 
 export default function Home() {
   const [filters, setFilters] = useState<{
@@ -132,16 +133,16 @@ export default function Home() {
   const gridRows = filteredSubjects.map((subject) => {
     let statusClass = "";
     switch (subject.status) {
-      case "Approved":
+      case Status.Approved:
         statusClass = styles.statusApproved;
         break;
-      case "Released":
+      case Status.Released:
         statusClass = styles.statusReleased;
         break;
-      case "Testing":
+      case Status.Testing:
         statusClass = styles.statusTesting;
         break;
-      case "Pending":
+      case Status.Pending:
         statusClass = styles.statusPending;
         break;
       default:

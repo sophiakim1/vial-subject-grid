@@ -1,18 +1,18 @@
-type Subject = {
+export interface Subject {
   id: number;
   name: string;
   age: number;
   gender: Gender; 
-  diagnosisDate: string; // TODO: Use Date type
+  diagnosisDate: string;
   status: Status;
 };
 
-enum Gender {
+export enum Gender {
   Male = "Male",
   Female = "Female",
 }
 
-enum Status {
+export enum Status {
   Approved = "Approved",
   Pending = "Pending",
   Testing = "Testing",

@@ -1,6 +1,7 @@
 import { Checkbox } from "@mantine/core";
 import React from "react";
 import styles from "../../page.module.css";
+import { Status } from "../../global/interfaces";
 
 interface StatusFilterProps {
   selectedValues: string[];
@@ -22,33 +23,33 @@ const StatusFilter: React.FC<StatusFilterProps> = ({
   return (
     <div>
       <Checkbox
-        checked={selectedValues.includes("Pending")}
-        value="Pending"
-        label="Pending"
+        checked={selectedValues.includes(Status.Pending)}
+        value={Status.Pending}
+        label={Status.Pending}
         onChange={handleCheckboxChange}
         classNames={{ input: styles.checkbox }}
         className={styles.filterOption}
       />
       <Checkbox
-        checked={selectedValues.includes("Approved")}
-        value="Approved"
-        label="Approved"
+        checked={selectedValues.includes(Status.Approved)}
+        value={Status.Approved}
+        label={Status.Approved}
         onChange={handleCheckboxChange}
         classNames={{ input: styles.checkbox }}
         className={styles.filterOption}
       />
       <Checkbox
-        checked={selectedValues.includes("Testing")}
-        value="Testing"
-        label="Testing"
+        checked={selectedValues.includes(Status.Testing)}
+        value={Status.Testing}
+        label={Status.Testing}
         onChange={handleCheckboxChange}
         classNames={{ input: styles.checkbox }}
         className={styles.filterOption}
       />
       <Checkbox
-        checked={selectedValues.includes("Released")}
-        value="Released"
-        label="Released"
+        checked={selectedValues.includes(Status.Released)}
+        value={Status.Released}
+        label={Status.Released}
         onChange={handleCheckboxChange}
         classNames={{ input: styles.checkbox }}
         className={styles.filterOption}
