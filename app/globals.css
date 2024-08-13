@@ -20,7 +20,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f3f3f3;
+  background-color: #f3f3f3 !important;
 }
 
 @media (max-width: 36em) {
