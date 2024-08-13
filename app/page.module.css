@@ -79,9 +79,6 @@
 }
 
 @media (max-width: 36em) {
-  body {
-    overflow: hidden;
-  }
   .collapseButton {
     display: block;
   }
