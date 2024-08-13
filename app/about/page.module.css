@@ -1,7 +1,25 @@
 .aboutContainer {
   height: 100%;
   width: 70vw;
-  margin: 0 auto;
+  margin: 10rem;
   justify-content: center;
   align-items: center;
+  text-align: center;
+}
+
+.content {
+  margin-top: 30px;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem; 
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
 }
