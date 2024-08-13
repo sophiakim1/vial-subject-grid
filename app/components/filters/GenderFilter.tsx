@@ -1,6 +1,7 @@
 import { Checkbox } from "@mantine/core";
 import React from "react";
 import styles from "../../page.module.css";
+import { Gender } from "@/app/global/interfaces";
 
 interface GenderFilterProps {
   selectedValues: string[];
@@ -22,17 +23,17 @@ const GenderFilter: React.FC<GenderFilterProps> = ({
   return (
     <div className={styles.filterOption}>
       <Checkbox
-        checked={selectedValues.includes("Male")}
-        value="Male"
-        label="Male"
+        checked={selectedValues.includes(Gender.Male)}
+        value={Gender.Male}
+        label={Gender.Male}
         onChange={handleCheckboxChange}
         classNames={{ input: styles.checkbox }}
         className={styles.filterOption}
       />
       <Checkbox
-        checked={selectedValues.includes("Female")}
-        value="Female"
-        label="Female"
+        checked={selectedValues.includes(Gender.Female)}
+        value={Gender.Female}
+        label={Gender.Female}
         onChange={handleCheckboxChange}
         classNames={{ input: styles.checkbox }}
         className={styles.filterOption}
