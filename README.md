@@ -1,6 +1,20 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div align="center">
+  <img src="/app/asset/logo.png" alt="Vial Logo" width="200">
+</div>
+<H1 align="center">Vial - Subject Grid Display Application</H1>
 
-## Getting Started
+<p  align="center">This is a Next.js project designed to provide a user-friendly interface for displaying and managing subject data. Built with modern technologies such as React, TypeScript, and Mantine, the application features a responsive grid layout that allows users to view, filter, and sort subject information efficiently.</p>
+
+## 🗺️ Map
+[📦 Installation](#installation)
+
+[🔓 Preview](#preview)
+
+[⚙️ Built With](#built-with)
+
+[💡 Features](#features)
+
+## Installation
 
 First, run the development server:
 
@@ -16,21 +30,51 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Preview
+<img src="./public/image/Screenshot.png" alt="Screenshot of the project" width="950"></li>
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Built With
+<ul>
+    <li><img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React badge" width="100"></li>
+    <li><img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript badge" width="100"></li>
+    <li><img src="https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js badge" width="100"></li>
+    <li><img src="https://img.shields.io/badge/postcss-DD3A0A?style=for-the-badge&logo=postcss&logoColor=white" alt="Postcss badge" width="100"></li>
+    <li><img src="https://img.shields.io/badge/Mantine-0066cc" alt="Mantine" width="100"></li>
+    <li><img src="https://img.shields.io/badge/TablerIcons-ffbf00" alt="Tabler" width="100"></li>
+    <li><img src="http://ForTheBadge.com/images/badges/built-with-love.svg" alt="Built with love badge" width="100"></li>
+</ul>
 
-## Learn More
+## Features
+1. **Data Fetching**:
+    - Created a mock API endpoint for subjects or developed a backend service with a GET route to fetch subject data.
+    - Each subject contains fields such as ID, Name, Age, Gender, Diagnosis Date, and Status.
+    - Introduced a delayed API call to simulate realistic network latency.
 
-To learn more about Next.js, take a look at the following resources:
+2. **Grid Display**:
+    - Render subject data in a visually appealing and user-friendly grid or table format.
+    - Utilize Mantine for styling to ensure a modern and responsive design.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Filtering Capability**:
+    - Allow users to filter subject data based on attributes like Gender, Diagnosis Date, and Status.
+    - Provide intuitive UI elements such as dropdowns or checkboxes for filters.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+4. **Sorting Feature**:
+    - Enable users to sort data by attributes such as Name, Age, and Diagnosis Date.
+    - Implement sorting via clickable table headers or separate sorting controls.
 
-## Deploy on Vercel
+5. **Dynamic Interactions**:
+    - Add a search bar enabling users to search subjects by their name.
+    - Implement infinite scroll to handle the display more efficiently.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+6. **Responsiveness**:
+    - Application is responsive and provides a good user experience on different devices and screen sizes.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+7. **Accessibility**:
+    - Adheres to accessibility standards (e.g., WCAG) to provide an inclusive experience for all users.
+
+8. **GitHub Project Board**:
+    - Use [GitHub Project Board](https://github.com/users/sophiakim1/projects/2) to manage and track the progress of tasks and features.
+
+<br>
+<br>
+<p align="center">Thank you for checking out! Hope you find it useful and easy to use. If you have any questions or feedback, please feel free to reach out.🤚</p>

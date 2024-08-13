@@ -1,5 +1,6 @@
 import { Checkbox } from "@mantine/core";
 import React from "react";
+import styles from "../../page.module.css";
 
 interface StatusFilterProps {
   selectedValues: string[];
@@ -25,24 +26,32 @@ const StatusFilter: React.FC<StatusFilterProps> = ({
         value="Pending"
         label="Pending"
         onChange={handleCheckboxChange}
+        classNames={{ input: styles.checkbox }}
+        className={styles.filterOption}
       />
       <Checkbox
         checked={selectedValues.includes("Approved")}
         value="Approved"
         label="Approved"
         onChange={handleCheckboxChange}
+        classNames={{ input: styles.checkbox }}
+        className={styles.filterOption}
       />
       <Checkbox
-        checked={selectedValues.includes("In Progress")}
-        value="In Progress"
-        label="In Progress"
+        checked={selectedValues.includes("Testing")}
+        value="Testing"
+        label="Testing"
         onChange={handleCheckboxChange}
+        classNames={{ input: styles.checkbox }}
+        className={styles.filterOption}
       />
       <Checkbox
         checked={selectedValues.includes("Released")}
         value="Released"
         label="Released"
         onChange={handleCheckboxChange}
+        classNames={{ input: styles.checkbox }}
+        className={styles.filterOption}
       />
     </div>
   );

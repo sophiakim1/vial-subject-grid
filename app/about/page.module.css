@@ -1,0 +1,51 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.wrapper {
+  display: flex;
+  height: 80vh;
+  width: 95vw;
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.logoContainer {
+  flex: 0 0 20%;
+  max-width: 250px;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem;
+}
+
+.logo {
+  height: 50px;
+  cursor: pointer;
+}
+
+.aboutContainer {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  overflow: hidden;
+  text-align: end;
+}
+
+.aboutButton {
+  text-transform: uppercase;
+  margin: .8rem 2.2rem .8rem 0;
+  cursor: pointer;
+  font-size: smaller;
+  font-weight: bold;
+  border: none;
+  text-align: end;
+  background-color: transparent;
+    position: absolute;
+}
